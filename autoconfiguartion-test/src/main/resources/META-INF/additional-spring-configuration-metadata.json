@@ -1,0 +1,30 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "org.springframework.boot.autoconfigure.api.UserProperties",
+      "name": "spring.user",
+      "type": "org.springframework.boot.autoconfigure.api.UserProperties"
+    }
+  ],
+  "properties": [
+    {
+      "name": "spring.user.username",
+      "type": "java.lang.String",
+      "defaultValue": "wuhulala",
+      "description": "Description for spring.user.name."
+    },
+    {
+      "name": "spring.user.email",
+      "type": "java.lang.String",
+      "defaultValue": "wuhulala@gmail.com",
+      "description": "Description for spring.user.name."
+    },
+    {
+      "name": "spring.user.phone",
+      "type": "java.lang.String",
+      "defaultValue": "15784855564",
+      "description": "Description for spring.user.name."
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.11.RELEASE'
+    }
+    repositories {
+        mavenLocal()
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'com.wuhulala'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenLocal()
+    maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+}
+
+
+dependencies {
+    compile('com.wuhulala:api:1.0-SNAPSHOT@jar')
+    compile('org.springframework.boot:spring-boot-starter')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+task mkdirs << {
+    sourceSets*.java.srcDirs*.each{
+        it.mkdirs()
+    }
+    sourceSets*.resources.srcDirs*.each{
+        it.mkdirs()
+    }
+}
