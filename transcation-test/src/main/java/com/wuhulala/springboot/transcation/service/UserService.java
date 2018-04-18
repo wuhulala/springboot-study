@@ -1,6 +1,6 @@
 package com.wuhulala.springboot.transcation.service;
 
-import com.wuhulala.springboot.transcation.base.BaseException;
+import com.wuhulala.api.base.BaseException;
 import com.wuhulala.springboot.transcation.mapper.UserMapper;
 import com.wuhulala.springboot.transcation.model.User;
 import org.springframework.aop.framework.AopContext;

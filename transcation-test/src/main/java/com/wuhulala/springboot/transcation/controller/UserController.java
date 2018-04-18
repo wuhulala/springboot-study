@@ -1,6 +1,6 @@
 package com.wuhulala.springboot.transcation.controller;
 
-import com.wuhulala.springboot.transcation.base.BaseResp;
+import com.wuhulala.api.base.BaseResp;
 import com.wuhulala.springboot.transcation.model.User;
 import com.wuhulala.springboot.transcation.service.UserService;
 import org.springframework.beans.BeansException;

@@ -1,7 +1,8 @@
 package com.wuhulala.springboot.transcation.web;
 
-import com.wuhulala.springboot.transcation.base.BaseException;
-import com.wuhulala.springboot.transcation.base.BaseResp;
+
+import com.wuhulala.api.base.BaseException;
+import com.wuhulala.api.base.BaseResp;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.ExceptionHandler;

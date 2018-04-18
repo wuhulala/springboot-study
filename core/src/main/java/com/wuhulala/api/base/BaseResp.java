@@ -1,4 +1,4 @@
-package com.wuhulala.springboot.transcation.base;
+package com.wuhulala.api.base;
 
 /**
  * 功能说明: com.wuhulala.springboot.transcation.base<br>
