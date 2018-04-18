@@ -26,20 +26,29 @@ public class CookTaskTest {
     @Autowired
     CookTask task;
     @Test
-    public void doTask() throws Exception {
+    public void doTask()  {
         long start = System.currentTimeMillis();
 
-        Future<String> wash = task.washVegetables();
-        Future<String> cut = task.cutVegetables();
-        Future<String> cook = task.doCook();
+        System.out.println(task);
+        Future<String> cook = null;
+        try {
+            cook = task.doCook();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        System.out.println(cook);
+
         while(true){
-            if(wash.isDone() && cut.isDone() && cook.isDone()){
+            assert cook != null;
+            System.out.println(cook.isDone());
+
+            if(cook.isDone()){
                 break;
             }
         }
         long end = System.currentTimeMillis();
+        logger.info("一盘青椒土豆丝完成了，总耗时：" + (end - start) + "毫秒");
 
-        logger.info("任务全部完成，总耗时：" + (end - start) + "毫秒");
     }
 
 }

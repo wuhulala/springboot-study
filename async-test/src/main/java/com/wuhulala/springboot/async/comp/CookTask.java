@@ -2,6 +2,7 @@ package com.wuhulala.springboot.async.comp;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.aop.framework.AopContext;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;
 import org.springframework.stereotype.Component;
@@ -54,12 +55,28 @@ public class CookTask {
      */
     @Async("cookTaskExecutor")
     public Future<String> doCook() throws InterruptedException {
+        //prepareCook();
         logger.info(">>>>>>>>>>>>>>>>>>>>>开始做菜<<<<<<<<<<<<<<<<<<");
 
         TimeUnit.SECONDS.sleep(10);
 
         logger.info(">>>>>>>>>>>>>>>>>>>>>结束做菜<<<<<<<<<<<<<<<<<<");
         return new AsyncResult<>("做菜任务完成");
+    }
+
+    public void prepareCook() throws InterruptedException {
+        CookTask proxyTask = (CookTask) AopContext.currentProxy();
+        System.out.println("==============================================================");
+        System.out.println(proxyTask);
+        System.out.println("==============================================================");
+        Future<String> wash = proxyTask.washVegetables();
+        Future<String> cut = proxyTask.cutVegetables();
+        while(true){
+            if(wash.isDone() && cut.isDone()){
+                logger.info("洗菜任务、切菜任务完成了");
+                break;
+            }
+        }
     }
 
 }
