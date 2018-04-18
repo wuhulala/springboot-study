@@ -32,7 +32,7 @@ public class UserService {
         return mapper.selectByPrimaryKey(name);
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     public int updateUser(User user) {
         mapper.updateByPrimaryKeySelective(user);
         Object proxy = AopContext.currentProxy();
