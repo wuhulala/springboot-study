@@ -52,4 +52,13 @@ public class User {
     public void setRemark(String remark) {
         this.remark = remark;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", remark='" + remark + '\'' +
+                '}';
+    }
 }

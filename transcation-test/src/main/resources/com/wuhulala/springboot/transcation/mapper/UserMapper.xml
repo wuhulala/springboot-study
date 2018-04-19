@@ -11,4 +11,11 @@
     <result column="age" jdbcType="INTEGER" property="age" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
   </resultMap>
+
+  <select id="findByName" resultMap="BaseResultMap" parameterType="java.lang.String" flushCache="true" useCache="false">
+    select * from user where name  = #{name}
+  </select>
+  <update id="updateByName" flushCache="true" parameterType="com.wuhulala.springboot.transcation.model.User" >
+    update user set remark = #{remark} where name = #{name}
+  </update>
 </mapper>

@@ -4,4 +4,8 @@ import com.wuhulala.springboot.transcation.model.User;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface UserMapper extends Mapper<User> {
+
+    int updateByName(User user);
+
+    User findByName(String name);
 }
