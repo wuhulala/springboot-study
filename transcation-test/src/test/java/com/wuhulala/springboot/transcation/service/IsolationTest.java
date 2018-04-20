@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.concurrent.CountDownLatch;
-
 /**
  * 功能说明: com.wuhulala.springboot.transcation.service<br>
  * 注意事项: <br>
@@ -32,13 +30,11 @@ public class IsolationTest {
      */
     @Test
     public void testReadUncommitted() throws InterruptedException {
-        CountDownLatch stop = new CountDownLatch(2);
         new Thread(() -> {
             User user = new User();
             user.setName("wuhulala");
             user.setRemark("wuhulala222222");
             service.updateUserReadUnCommit(user);
-            stop.countDown();
         }).start();
 
         new Thread(() -> {
@@ -47,7 +43,6 @@ public class IsolationTest {
             service.readCommit(user);
             service.readUnCommit(user);
             service.repeatRead(user);
-            stop.countDown();
         }).start();
 
         Thread.sleep(30000);
