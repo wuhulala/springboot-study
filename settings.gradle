@@ -3,4 +3,5 @@ include 'async-test'
 include 'transcation-test'
 include 'core'
 include 'cache-test'
+include 'spel-test'
 
