@@ -11,6 +11,7 @@ repositories {
 }
 
 dependencies {
+    compile('org.springframework.data:spring-data-commons:1.13.11.RELEASE')
 }
 
 task mkdirs << {

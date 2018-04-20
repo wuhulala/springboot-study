@@ -1,0 +1,16 @@
+
+
+spring:
+  couchbase:
+    bootstrap-hosts: couchbase
+    bucket:
+      name: default
+      password:
+  cache:
+    cache-names: default,product
+server:
+  port: 9001
+logging:
+  level:
+     org.springframework.cache: trace
+
